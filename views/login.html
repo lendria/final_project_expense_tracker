@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPENSE TRACKER</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body >
+    <div class="container flex login-container"  >
+       
+
+      <div class="tracker-page flex ">
+        <div class="text">
+          <h1>Welcome to your Expense Tracker</h1>
+          <p>Track your money as you spend</p>
+          
+        </div>
+        <div id="error-message" style="display: none; ">
+          <p id="error-text"></p>
+      </div>
+        <form method="post" action="/login">
+          
+          <input type="email" placeholder="Email Address" name="email_address" required>
+          <input type="password" placeholder="Password" name="password" required>
+          <div class="link">
+            <button type="submit" class="login">Log in</button>
+            <a href="#" class="forgot">Forgot your password?</a>
+          </div> 
+         <hr>
+          <div class="button">
+            <span style="color: #8a0b55 ; font-size: 0.999rem;">Don't have an account yet?</span><br><br><br>
+            <a href="./register.html">Register here</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+    <script>
+      // Check for error query parameter in URL
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('error')) {
+          // Display error message if login fails
+          document.getElementById('error-message').style.display = 'block';
+          document.getElementById('error-text').textContent = 'Invalid email or password. Please try again.';
+      }
+  </script>
+  </body>
+</html>
